@@ -64,4 +64,5 @@ _Tela de captura_
 É aqui que a mágica acontece. É só digitar o termo desejado (por exemplo "audi") e clicar no botão, que o sistema irá automaticamente importar do Quest Multimarcas os respectivos veículos, validando se já não foram inseridos.
 
 > Feedbacks são sempre bem vindos
-> by Daniel Tavares
+<br>
+by Daniel Tavares
