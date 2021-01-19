@@ -38,6 +38,11 @@ php artisan db:seed --class=UsuarioSeeder
 ```
 ou, se preferir, crie manualmente um usuário no banco de dados.
 
+Antes de rodar o projeto, execute o comando
+```sh
+php artisan key:generate
+```
+
 E, por fim, para rodar o projeto, execute
 ```sh
 php artisan serve
