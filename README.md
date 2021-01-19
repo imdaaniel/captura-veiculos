@@ -1,62 +1,67 @@
-<p align="center"><img src="https://static.autoconf.com.br/site-questmultimarcas/wp-content/uploads/2020/01/logo-quest.png" width="400"></p>
+<p align="center"><a href="https://www.questmultimarcas.com.br" target="_blank"><img src="https://static.autoconf.com.br/site-questmultimarcas/wp-content/uploads/2020/01/logo-quest.png" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Captura de veículos 🚘
 
-## About Laravel
+Esse projeto consiste em um sistema onde é possível capturar dados de veículos do site Quest Multimarcas (sem API) baseado no termo pesquisado.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Requisitos
+- [PHP 7.4](https://www.php.net/)
+- [Composer](https://getcomposer.org)
+- [MySQL](https://www.mysql.com/) ou [XAMPP](https://www.apachefriends.org)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Instalação
+Primeiro, clone o projeto
+```sh
+git clone https://github.com/imdaaniel/captura-veiculos.git
+```
+Depois, instale as dependências necessárias
+```sh
+composer install
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+No arquivo .env, o banco padrão do projeto se chama "laravel". Caso queira utilizar esse, apenas execute o comando abaixo em seu gerenciador de banco de dados
+```sql
+CREATE DATABASE laravel;
+```
+ou, se preferir, substitua "laravel" para o nome desejado, mas não esqueça de alterar o arquivo .env
 
-## Learning Laravel
+Agora, para que as tabelas sejam criadas, execute o comando
+```sh
+php artisan migrate
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Para criar o usuário padrão (admin, admin), execute o comando
+```sh
+php artisan db:seed --class=UsuarioSeeder
+```
+ou, se preferir, crie manualmente um usuário no banco de dados.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+E, por fim, para rodar o projeto, execute
+```sh
+php artisan serve
+```
 
-## Laravel Sponsors
+Após isso, é só ir no navegador e digitar `http://localhost:8000` :smile:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Demonstração do sistema
+<p align="center"><img src="https://github.com/imdaaniel/captura-veiculos/tree/main/images/demonstracao.png" width="500px"></p>
 
-### Premium Partners
+## Telas
+_Login_
+<p align="center"><img src="https://github.com/imdaaniel/captura-veiculos/tree/main/images/login.png" width="500px"></p>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+Nessa tela ocorre a autenticação. Caso insira dados inválidos, uma mensagem de erro aparecerá na tela indicando que as credenciais não conferem ;)
 
-## Contributing
+_Lista de artigos (veículos)_
+<p align="center"><img src="https://github.com/imdaaniel/captura-veiculos/tree/main/images/artigos.png" width="500px"></p>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Aqui temos a listagem dos artigos cadastrados, podendo realizar uma busca.
+No menu superior, temos as opções de navegação, podendo ir para a tela de captura ou deslogar.
 
-## Code of Conduct
+_Tela de captura_
+<p align="center"><img src="https://github.com/imdaaniel/captura-veiculos/tree/main/images/captura.png" width="500px"></p>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+É aqui que a mágica acontece. É só digitar o termo desejado (por exemplo "audi") e clicar no botão, que o sistema irá automaticamente importar do Quest Multimarcas os respectivos veículos, validando se já não foram inseridos.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> Feedbacks são sempre bem vindos
+> by Daniel Tavares
