@@ -9,9 +9,17 @@ class Artigo extends Model
 {
     use HasFactory;
 
-    // protected $table = 'artigos'
+    public $timestamps = false;
 
-    // protected $fillable = [
-
-    // ]
+    protected $fillable = [
+        'id_usuario',
+        'link',
+        'nome_veiculo',
+        'ano',
+        'quilometragem',
+        'combustivel',
+        'cambio',
+        'portas',
+        'cor',
+    ];
 }

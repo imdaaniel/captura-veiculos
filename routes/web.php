@@ -25,5 +25,5 @@ Route::get('/sair', [LoginController::class, 'sair']);
 Route::get('/artigos', [ArtigoController::class, 'index']);
 Route::delete('/artigos/{id}', [ArtigoController::class, 'deletar']);
 
-Route::get('/capturar', [CapturaController::class, 'index']);
-Route::post('/capturar', [CapturaController::class, 'capturar']);
+Route::get('/artigos/capturar', [CapturaController::class, 'index']);
+Route::post('/artigos/capturar', [CapturaController::class, 'capturar']);

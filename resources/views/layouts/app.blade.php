@@ -32,7 +32,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/capturar">Capturar</a>
+            <a class="nav-link" href="/artigos/capturar">Capturar</a>
           </li>
 
           <li class="nav-item">

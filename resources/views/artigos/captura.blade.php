@@ -19,6 +19,9 @@
 @endisset
 
 <form method="POST" action="/artigos/capturar">
+  {{ method_field('POST') }}
+  {{ csrf_field() }}
+
   <div class="form-group">
     <label for="termo">Digite um termo para capturar</label>
     <input type="text" class="form-control" name="termo" id="termo" 
