@@ -1,10 +1,6 @@
 <?php
 
-use App\Http\Controllers\ArtigoController;
-use App\Http\Controllers\CapturaController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\{LoginController, ArtigoController, CapturaController};
 use Illuminate\Support\Facades\Route;
 
 /*
