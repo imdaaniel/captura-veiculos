@@ -19,6 +19,8 @@ Depois, instale as dependências necessárias
 composer install
 ```
 
+Renomeie o arquivo .env.example para .env.
+
 No arquivo .env, o banco padrão do projeto se chama "laravel". Caso queira utilizar esse, apenas execute o comando abaixo em seu gerenciador de banco de dados
 ```sql
 CREATE DATABASE laravel;
