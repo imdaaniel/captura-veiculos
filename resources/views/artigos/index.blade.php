@@ -2,9 +2,13 @@
 
 @section('conteudo')
 
-@if ($errors->has('msg'))
+@if ($errors->any())
   <div class="alert alert-danger">
-    {{ $errors->first('msg') }}
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
   </div>
 @endif
 
@@ -18,7 +22,6 @@
     <th>Câmbio</th>
     <th>Cor</th>
     <th></th>
-    <th></th>
   </thead>
   <tbody>
   @foreach ($artigos as $artigo)
@@ -31,18 +34,29 @@
       <td>{{ $artigo->cambio }}</td>
       <td>{{ $artigo->cor }}</td>
       <td>
-        <a href="{{ $artigo->link }}" target="_blank" class="btn btn-primary">Link</a>
-      </td>
-      <td>
-        <form action="/artigos/{{ $artigo->id }}" idArtigo="{{ $artigo->id }}" method="POST">
-          {{ method_field('DELETE') }}
-          {{ csrf_field() }}
-          <button type="button" idArtigo="{{ $artigo->id }}" class="btn btn-danger btnExcluir">Excluir</button>
-        </form>
+        <div class="row">
+          <a href="{{ $artigo->link }}" target="_blank" class="btn btn-primary"
+            title="Detalhes do artigo"
+          >
+            <i class="fa fa-link"></i>
+          </a>
+
+          <form action="/artigos/{{ $artigo->id }}" idArtigo="{{ $artigo->id }}" method="POST">
+            {{ method_field('DELETE') }}
+            {{ csrf_field() }}
+            <button type="button" idArtigo="{{ $artigo->id }}" 
+              class="btn btn-danger btnExcluir"
+              title="Excluir artigo"
+            >
+              <i class="fa fa-trash"></i>
+            </button>
+          </form>
+
+        </div>
       </td>
     </tr>
   @endforeach
-  
+
   @if (count($artigos) == 0)
     <tr>
       <td colspan="7">Sem registros</td>

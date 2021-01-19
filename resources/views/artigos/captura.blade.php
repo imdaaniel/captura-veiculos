@@ -1,10 +1,35 @@
 @extends('layouts.app')
 
 @section('conteudo')
+
+@if ($errors->any())
+<div class="alert alert-warning">
+  <ul>
+    @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
+@isset($msg)
+<div class="alert alert-success">
+  {{ $msg }}
+</div>
+@endisset
+
 <form method="POST" action="/artigos/capturar">
   <div class="form-group">
-    <input type="text" class="form-control" name="" id="">
-    <button type="button" class="btn btn-primary">Capturar</button>
+    <label for="termo">Digite um termo para capturar</label>
+    <input type="text" class="form-control" name="termo" id="termo" 
+      placeholder="Audi"
+      required
+      autofocus
+    >
+  </div>
+
+  <div class="form-group align-right">
+    <button type="submit" class="btn btn-primary">Capturar</button>
   </div>
 </form>
 @endsection
