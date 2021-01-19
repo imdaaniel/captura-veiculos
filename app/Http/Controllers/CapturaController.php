@@ -26,7 +26,7 @@ class CapturaController extends Controller
                 Artigo::updateOrCreate($artigo);
             }
 
-            return back()->with('msg', 'Artigos capturados com sucesso.');
+            return view('artigos.captura', ['msg' => 'Artigos capturados com sucesso.']);
         }
 
         return back()->withErrors([

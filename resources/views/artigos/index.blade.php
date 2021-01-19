@@ -3,13 +3,19 @@
 @section('conteudo')
 
 @if ($errors->any())
-  <div class="alert alert-danger">
-    <ul>
-      @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
+<div class="alert alert-danger">
+  <ul>
+    @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
+@if (Session::has('msg'))
+<div class="alert alert-success">
+  {{ Session::get('msg') }}
+</div>
 @endif
 
 <table class="table table-striped">
@@ -30,7 +36,7 @@
       <td>{{ $artigo->ano }}</td>
       <td>{{ $artigo->combustivel }}</td>
       <td>{{ $artigo->portas }}</td>
-      <td>{{ $artigo->quilometragem }}</td>
+      <td>{{ number_format($artigo->quilometragem, 0, '', '.') }}</td>
       <td>{{ $artigo->cambio }}</td>
       <td>{{ $artigo->cor }}</td>
       <td>

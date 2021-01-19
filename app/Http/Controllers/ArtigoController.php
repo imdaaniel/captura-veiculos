@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Artigo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArtigoController extends Controller
 {
@@ -13,7 +14,7 @@ class ArtigoController extends Controller
     }
     
     public function index(Request $request) {
-        $artigos = Artigo::orderBy('id', 'desc')->get();
+        $artigos = Artigo::where('id_usuario', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         return view('artigos.index', ['artigos' => $artigos]);
     }
