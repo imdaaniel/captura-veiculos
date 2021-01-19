@@ -19,6 +19,19 @@ class ArtigoController extends Controller
         return view('artigos.index', ['artigos' => $artigos]);
     }
 
+    public function buscar(Request $request) {
+        $request->validate([
+            'nome_veiculo' => 'required|string|max:255|min:3',
+        ]);
+
+        $artigos = Artigo::where([
+            ['nome_veiculo', 'like', "%{$request->nome_veiculo}%"],
+            ['id_usuario', Auth::user()->id],
+        ])->orderBy('id', 'desc')->get();
+
+        return view('artigos.index', ['artigos' => $artigos, 'busca' => '1']);
+    }
+
     public function deletar(Request $request) {
         $id = $request->id;
 

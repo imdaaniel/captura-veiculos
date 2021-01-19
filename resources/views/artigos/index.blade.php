@@ -18,6 +18,20 @@
 </div>
 @endif
 
+<form action="/artigos/buscar" method="POST" class="form-inline mb-2">
+  {{ method_field('POST') }}
+  {{ csrf_field() }}
+
+  <div class="form-group">
+    <input type="text" name="nome_veiculo" class="form-control" placeholder="Audi A3" required>
+    <button type="submit" class="btn btn-primary ml-2"><i class="fa fa-search"></i> Buscar</button>
+    
+    @isset($busca)
+    <a href="/artigos" class="btn btn-success ml-2"><i class="fa fa-undo"></i> Limpar</a>
+    @endisset
+  </div>
+</form>
+
 <table class="table table-striped">
   <thead>
     <th>Nome</th>
@@ -65,7 +79,7 @@
 
   @if (count($artigos) == 0)
     <tr>
-      <td colspan="7">Sem registros</td>
+      <td colspan="8">Sem registros</td>
     </tr>
   @endif
   </tbody>

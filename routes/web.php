@@ -23,6 +23,7 @@ Route::post('/autenticar', [LoginController::class, 'autenticar']);
 Route::get('/sair', [LoginController::class, 'sair']);
 
 Route::get('/artigos', [ArtigoController::class, 'index']);
+Route::post('/artigos/buscar', [ArtigoController::class, 'buscar']);
 Route::delete('/artigos/{id}', [ArtigoController::class, 'deletar']);
 
 Route::get('/artigos/capturar', [CapturaController::class, 'index']);
