@@ -9,9 +9,13 @@
         <form method="POST" action="/autenticar">
           @csrf
           
-          @if ($errors->has('usuario'))
+          @if ($errors->any())
             <div class="alert alert-danger">
-              <strong>{{ $errors->first('usuario') }}</strong>
+              <ul>
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
             </div>
           @endif
 

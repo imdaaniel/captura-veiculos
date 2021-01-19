@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
@@ -17,17 +17,8 @@ class LoginController extends Controller
 
         return view('login.index');
     }
-    
-    protected function validar(array $data) {
-        return Validator::make($data, [
-            'usuario' => 'required|string|max:255',
-            'senha' => 'required|string|max:255|confirmed',
-        ]);
-    }
 
-    public function autenticar(Request $request) {
-        $this->validar($request->only('usuario', 'senha'));
-
+    public function autenticar(LoginRequest $request) {
         $credenciais = [
             'usuario' => $request->usuario,
             'password' => $request->senha

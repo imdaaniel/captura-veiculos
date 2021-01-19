@@ -26,6 +26,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
+          @if (Auth::check())
           <li class="nav-item">
             <a class="nav-link" href="/artigos">Artigos</a>
           </li>
@@ -34,7 +35,6 @@
             <a class="nav-link" href="/capturar">Capturar</a>
           </li>
 
-          @if (Auth::check())
           <li class="nav-item">
             <a class="nav-link" href="/sair">Sair</a>
           </li>
