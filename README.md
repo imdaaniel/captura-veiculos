@@ -2,7 +2,7 @@
 
 ## Captura de veículos 🚘
 
-Esse projeto consiste em um sistema onde é possível capturar dados de veículos do site Quest Multimarcas (sem API) baseado no termo pesquisado.
+Esse projeto consiste em um sistema onde é possível capturar dados de veículos do site Quest Multimarcas (via crawler) baseado no termo pesquisado.
 
 ## Requisitos
 - [PHP 7.4](https://www.php.net/)
